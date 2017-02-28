@@ -1,0 +1,111 @@
+
+.radio{
+    margin-top:20px;
+    margin-left:50px;
+}
+.checkbox{
+    margin-top:30px;
+    margin-left:50px;
+
+}
+
+.ownCheckbox+label{
+    width: 11px;
+    height:11px;
+    display: inline-block;/*此处很关键*/
+    border:1px solid #ccc;
+    line-height:14px;
+    margin-left:8px;
+    margin-right:5px;
+    position: relative;
+    border-radius: 1px;
+}
+.ownCheckbox+label::after{
+    content: "";
+    width:5px;
+    height:3px;
+    position: absolute;
+    left:2px;
+    top:2px;
+}
+.ownCheckbox:checked+label::after{
+    border: 2px solid #d73d32;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.ownCheckbox:checked+label{
+    border:1px solid red;
+}
+.radios+label{
+    width: 12px;
+    height:12px;
+    display: inline-block;
+    border:1px solid #ccc;
+    border-radius:6px;
+    line-height:12px;
+    margin-left:8px;
+    margin-right:5px;
+    position: relative;
+}
+.radios+label::after{
+     width:6px;
+     height:6px;
+     content: "";
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    position: absolute;
+    left:3px;
+    top:3px;
+}
+.radios:checked+label::after{
+    background: red;
+}
+.radios:checked+label{
+    border:1px solid red;
+}
+input{
+    display: none;
+}
+
+/*利用雪碧图实现效果*/
+.radio-sprit{
+    margin-top:10px;
+    margin-left:50px;
+}
+.checkbox-sprit{
+    margin-top:30px;
+    margin-left:50px;
+
+}
+.radios-sprit+label{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background: url("images/bk.png") no-repeat -18px -1px;
+    margin-left:6px;
+    margin-right:3px;
+    margin-top:6px;
+    text-align: center;
+}
+.radios-sprit:checked+label{
+    background:url("images/bk.png") no-repeat -52px -1px;
+}
+.Checkbox-sprit+label{
+    width: 25px;
+    height: 20px;
+    display: inline-block;
+    background: url("images/bk.png") no-repeat -18px -28px;
+    margin-left:6px;
+    margin-right:3px;
+    margin-top:6px;
+    text-align: center;
+}
+.Checkbox-sprit:checked+label{
+    background:url("images/bk.png") no-repeat -52px -28px;
+}
