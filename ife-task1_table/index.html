@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+      <div><label for="input_one">名称</label><input type="text" class="input" id="input_one"><button id="button" value="验证" onclick="validate()">验证</button></div>
+      <span class="span_one" id="span_one"></span>
+</body>
+<script type="text/javascript">
+        var validate=function(){
+            var input=document.getElementById("input_one");
+            var inputValue=input.value.trim();
+            var span=document.getElementById("span_one");
+            if(countLength(inputValue)==0)
+            {
+                span.innerHTML="姓名不能为空";
+                span.className="span_two";/*更改样式*/
+                input.className="input_two";
+            }
+           else if(countLength(inputValue)<4||countLength(inputValue)>16){
+               span.innerHTML="必填，长度为4-16个字符";
+               span.className="span_one";
+               input.className="input"
+           }
+           else{
+              span.innerHTML="格式正确";
+              span.className="span_three";
+              input.className="input_three"
+           }
+        }
+ function countLength(str){
+    var length=0;
+    for(var i=0;i<str.length;i++)
+    {
+        var code=str.charCodeAt(i);/*获取输入字符的ASCII码，当处于0-128之间的则为英文，否则为中文*/
+        if(code>=0&&code<=128)
+        {
+            length++;
+        }
+        else{
+            length+=2;
+        }
+    }
+    console.log(length);
+    return length;
+ }
+</script>
+</html>
