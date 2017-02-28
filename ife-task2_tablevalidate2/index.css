@@ -1,0 +1,68 @@
+div{
+    width:100%;
+    /* height:150px;*/
+    text-align: center;
+    margin-top:30px;
+    margin-bottom:15px;
+
+}
+input{
+    width:38%;
+    height:60px;
+    border-radius:8px;
+    margin-right:40px;
+    border:2px solid #ccc;
+    font-size: 22px;
+}
+input:focus{
+    outline: medium;/*去掉input标签的外边框*/
+    border-color:#2f79ba;
+}
+.input_one{
+    border:2px solid #ccc;
+}
+.input_two{
+    border:2px solid red;
+
+}
+.input_three{
+    border:2px solid green;
+
+}
+label{
+    font-size:26px;
+    font-weight:bold;
+    font-family: "微软雅黑";
+    margin-right:40px;
+    width:130px;
+    display: inline-block;
+}
+button{
+    width:90px;
+    height:60px;
+    color:white;
+    border:1px solid #2f79ba;
+    background:#2f79ba;
+    text-align: center;
+    font-size:26px;
+    border-radius:8px;
+    line-height:50px;
+    margin-left:50%;
+    margin-top:10px;
+    display: block;
+}
+span{
+    font-size:20px;
+    font-family: "微软雅黑";
+    margin-left:33%;
+    margin-top:30px;
+}
+.span_one{
+    color:#aaa;
+}
+.span_two{
+    color:red;
+}
+.span_three{
+    color:green;
+}

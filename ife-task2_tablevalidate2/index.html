@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div><label for="name">名称</label><input type="text" class="name" id="name" onfocus="Focus(this)" onblur="Blur(this)"></div>
+    　　<span class="span" id="span_name"></span>
+    <div><label for="password">密码</label><input type="password" class="password" id="password" onfocus="Focus(this)" onblur="Blur(this)"></div>
+    　　<span class="span" id="span_password"></span>
+    <div><label for="checkPassword">密码确认</label><input type="password" class="checkPassword" id="checkPassword" onfocus="Focus(this)" onblur="Blur(this)"></div>
+    　　<span class="span" id="span_checkPassword"></span>
+    <div><label for="email">邮箱</label><input type="email" class="email" id="email" onfocus="Focus(this)" onblur="Blur(this)"></div>
+   　　 <span class="span" id="span_email"></span>
+    <div><label for="phone">手机</label><input type="text" class="phone" id="phone" onfocus="Focus(this)" onblur="Blur(this)"></div>
+    　　<span class="span" id="span_phone"></span>
+    <button id="button"  onclick="validate()">提交</button>
+<script type="text/javascript">
+
+    function Focus(obj){
+       /* console.log(obj)*/
+        var id=obj.id;
+        switch (id){
+            case "name":var span= document.getElementById("span_name");span.className="span_one";span.innerHTML="必填，长度为4-16个字符";break;
+            case "password":var span= document.getElementById("span_password");span.className="span_one";span.innerHTML="请输入密码";break;
+            case "checkPassword":var span= document.getElementById("span_checkPassword");span.className="span_one";span.innerHTML="再次输入相同密码";break;
+            case "email":var span=document.getElementById("span_email");span.className="span_one";span.innerHTML="请输入邮箱号";break;
+            case "phone":var span=document.getElementById("span_phone");span.className="span_one";span.innerHTML="请输入手机号";break;
+        }
+    }
+    function Blur(obj){
+     /*console.log(obj);*/
+     var id=obj.id;
+     switch (id){
+         case "name":
+             var span= document.getElementById("span_name");
+             var input=document.getElementById("name");
+             var inputValue=input.value.trim();
+             if(countLength(inputValue)==0)
+             {
+
+                 span.className="span_two";
+                 input.className="input_two";
+                 span.innerHTML="名称不能为空";
+             }
+             else
+                 {
+
+                     span.innerHTML="格式正确";
+                     span.className="span_three";
+                     input.className="input_three"
+                 }
+             break;
+         case "password":
+             var span= document.getElementById("span_password");
+             var input=document.getElementById("password");
+             var inputValue=input.value.trim();
+             if(countLength(inputValue)==0)
+             {
+
+                 span.className="span_two";
+                 input.className="input_two";
+                 span.innerHTML="密码不能为空";
+             }
+             else
+             {
+
+                 span.innerHTML="密码正确";
+                 span.className="span_three";
+                 input.className="input_three"
+             }
+             break;
+         case "checkPassword":
+             var span= document.getElementById("span_checkPassword");
+             var input=document.getElementById("checkPassword");
+             var inputValue=input.value.trim();
+             var checkPassword=document.getElementById("password").value.trim();
+             if((inputValue!=checkPassword)||(inputValue==""))
+             {
+
+                 span.className="span_two";
+                 input.className="input_two";
+                 span.innerHTML="两次输入密码不同";
+             }
+             else
+             {
+
+                 span.innerHTML="输入正确";
+                 span.className="span_three";
+                 input.className="input_three"
+             }
+         case "email":
+             var span=document.getElementById("span_email");
+             var input=document.getElementById("email");
+             var inputValue=input.value.trim();
+             var rex=new RegExp('^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$');/*邮箱的正则表达式*/
+             if(!rex.test(inputValue))
+             {
+
+                 span.className="span_two";
+                 input.className="input_two";
+                 span.innerHTML="邮箱格式不正确";
+             }
+             else
+             {
+
+                 span.innerHTML="邮箱格式正确";
+                 span.className="span_three";
+                 input.className="input_three"
+             }
+             break;
+         case "phone":
+             var span=document.getElementById("span_phone");
+             var input=document.getElementById("phone");
+             var inputValue=input.value.trim();
+             if(!(/^1(3|4|5|7|8)\d{9}$/.test(inputValue)))/*电话号码的正则表达式*/
+             {
+                 span.className="span_two";
+                 input.className="input_two";
+                 span.innerHTML="手机格式有误";
+             }
+             else
+             {
+                 span.innerHTML="手机号格式正确";
+                 span.className="span_three";
+                 input.className="input_three"
+             }
+             break;
+     }
+    }
+    var validate=function(){
+        var span_name= document.getElementById("span_name").className;
+        var span_password= document.getElementById("span_password").className;
+        var span_checkPassword= document.getElementById("span_checkPassword").className;
+        var span_email=document.getElementById("span_email").className;
+        var span_phone=document.getElementById("span_phone").className;
+        if(span_checkPassword=="span_three"&&span_email=="span_three"&&span_name=="span_three"&&span_password=="span_three"&&span_phone=="span_three"){
+            alert("验证通过");
+        }
+        else alert("输入有误！");
+
+
+    }
+    function countLength(str){
+        var length=0;
+        for(var i=0;i<str.length;i++)
+        {
+            var code=str.charCodeAt(i);/*获取输入字符的ASCII码，当处于0-128之间的则为英文，否则为中文*/
+            if(code>=0&&code<=128)
+            {
+                length++;
+            }
+            else{
+                length+=2;
+            }
+        }
+        console.log(length);
+        return length;
+    }
+</script>
+</body>
+</html>
