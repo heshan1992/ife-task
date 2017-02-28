@@ -1,0 +1,28 @@
+.centerDiv{
+    width: 400px;
+    height:200px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin: -100px 0 0 -200px;
+    background: #ccc;
+    overflow: hidden;
+}
+.left_top{
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    background: #fc0;
+    position: relative;
+    left:-50px;
+    top:-50px;
+}
+.right_bottom{
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    background: #fc0;
+    position: absolute;
+    left:350px;
+    top:150px;
+}
