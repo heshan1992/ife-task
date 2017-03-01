@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css" type="text/css">
+</head>
+<body>
+     <div class="div_radio">
+         <input type="radio" value="0" name="radio" id="student" checked onclick="showSt()"><label for="student"></label><span>在校生</span>
+         <input type="radio" value="1" name="radio" id="worker" onclick="showWork()"><label for="worker"></label><span>非在校生</span>
+     </div>
+    <div class="school">
+        <label>学校</label>
+        <select id="city" onchange="select()">
+            <option value="BeiJing">北京</option>
+            <option value="ChengDu">成都</option>
+            <option value="WuHan">武汉</option>
+        </select>
+        <select id="BeiJing">
+            <option>北京大学</option>
+            <option>北京邮电大学</option>
+        </select>
+        <select id="ChengDu">
+            <option>四川大学</option>
+            <option>西南交大</option>
+
+        </select>
+        <select id="WuHan">
+            <option>武汉大学</option>
+            <option>华中大学</option>
+        </select>
+    </div>
+     <div class="worker">
+         <label >就业单位</label>
+         <input type="text" class="worker_input">
+     </div>
+     <script type="text/javascript">
+           function showSt(){
+               var student =document.getElementsByClassName("school")[0];
+               student.style.display="block";
+               var worker=document.getElementsByClassName("worker")[0];
+               worker.style.display="none";
+           }
+           function showWork(){
+               var student =document.getElementsByClassName("school")[0];
+               student.style.display="none";
+               var worker=document.getElementsByClassName("worker")[0];
+               worker.style.display="block";
+           }
+           function select() {
+             /*var select=document.getElementById("city");*/
+             var selects=document.getElementsByClassName("school")[0].getElementsByTagName("select");
+             var select=selects[0];
+             var selectIndex=select.selectedIndex;
+             var value=select.options[selectIndex].value;
+             for(var i=1;i<selects.length;i++){
+                if(selects[i].id!=value)
+                {
+                    selects[i].style.display="none"
+                }
+                else{
+                    selects[i].style.display="inline-block";
+                }
+             }
+
+           }
+     </script>
+
+</body>
+</html>

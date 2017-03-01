@@ -1,0 +1,99 @@
+.div_radio{
+    width: 100%;
+    margin-top:40px;
+    margin-left:25%;
+
+}
+input[type="radio"]{
+   display: none;
+}
+input[type="radio"]+label{
+    width:16px;
+    height:16px;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+    border:1px solid #aaa;
+    display: inline-block;
+    line-height:16px;
+    position: relative;
+   margin-left:80px;
+
+}
+input[type="radio"]+label::after{
+    content: "";
+    width:8px;
+    height:8px;
+    border-radius:4px;
+    background: #fff;
+    position: absolute;/*这个很关键*/
+    left:4px;
+    top:4px;
+
+}
+input[type="radio"]:checked+label{
+    background: #3696fd;
+    border:1px solid #3696fd;
+}
+input[type="radio"]:checked+label::after{
+    background: white;
+}
+input[type="radio"]:checked .school{
+    display: none;
+}
+span{
+    font-weight:bold;
+    font-size:20px;
+    margin-left:8px;
+}
+.school{
+    display: block;
+    margin-left:25%;
+    width:100%;
+    margin-top:40px;
+}
+.school label{
+    font-size:22px;
+    font-weight:bold;
+    margin-right:30px;
+}
+.school select{
+    width:30%;
+    height:40px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-right:50px;
+    font-size:14px;
+    font-weight: bold;
+}
+select:focus{
+    outline: medium;
+}
+.school select:first-of-type{
+    width:20%;
+}
+#ChengDu,#WuHan{
+    display: none;
+}
+.worker{
+    display: none;
+    margin-left:20%;
+    width:100%;
+    margin-top:40px;
+}
+.worker label{
+    font-size:22px;
+    font-weight:bold;
+    margin-right:25px;
+}
+.worker input{
+    width:50%;
+    height:50px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size: 20px;
+    font-family: bold;
+}
+.worker input:focus{
+    outline:medium;
+}
