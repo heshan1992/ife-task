@@ -1,0 +1,49 @@
+
+@media screen and (min-width:640px){
+    .container{
+        align-items: center;/*垂直方向居中*/
+    }
+}
+@media screen and (max-width:640px) {
+    .container{
+
+        flex-wrap: wrap;/*当宽度不够显示时则实现换行*/
+        align-item:flex-start;
+    }
+    .one{
+        order:2;/*决定显示的顺序*/
+    }
+    .two{
+        order:3;
+    }
+    .three{
+        order:4;
+    }
+    .four{
+     order: 1;
+    }
+
+}
+.container{
+    display: flex;
+    justify-content:space-between;
+}
+.container div{
+    width:150px;
+    border:1px solid #f00;
+    margin:20px;
+}
+.one{
+    height:120px;
+
+}
+.two{
+    height:100px;
+}
+.three{
+    height:40px;
+}
+.four{
+    height:400px;
+    border:1px solid #00f !important;
+}
